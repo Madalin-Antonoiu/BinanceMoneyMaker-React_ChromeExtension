@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
+import QueryData from "../react-components/QueryData";
 
 const App = () => {
-  //On Load
-  useEffect(() => {
-    console.log("HiyAAAAAAA");
-  }, []);
-
-  return <div>REALLY NOW?</div>;
+  return (
+    <div>
+      <QueryData />
+      <button className="ui primary button">AWESOMENESS</button>;
+    </div>
+  );
 };
 
 export default App;
