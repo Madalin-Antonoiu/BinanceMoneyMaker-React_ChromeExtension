@@ -1,0 +1,13 @@
+{
+  "env": {
+    // ...
+    "webextensions": true
+  },
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "parser": "babel-eslint",
+  "globals": {
+    "chrome": true
+  }
+}

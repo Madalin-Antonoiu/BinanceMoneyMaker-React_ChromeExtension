@@ -1,3 +1,30 @@
+# Many thanks for inspiration to :
+
+shuowu/chrome-extension-react-starter-kit
+
+# How to edit this:
+
+dist/manifest.json - Chrome Ext. base file
+dist/popup.html
+Everything else in dist is generated upon calling "yarn start" or "yarn build"
+No need to worry much about webpack files or babel config.
+Make sure you load unpacked extension from dist :)
+
+# Tools used:
+
+React
+Chrome Extension
+Webpack
+EsLint
+Prettier
+Babel
+and probably others too...
+
+# Fork:
+
+`✅ Template - Chrome Extension with React - V1 - (popup window not external) ✅`
+This commit can be forked for any other fresh Chrome- React- Extension goodstuff!
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

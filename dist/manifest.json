@@ -1,0 +1,20 @@
+{
+  "name": "binance_money_maker-react",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "permissions": ["tabs", "http://*/*", "https://*/*"],
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["./contentScript.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "background": {
+    "scripts": ["./background.js"],
+    "persistent": false
+  }
+}
