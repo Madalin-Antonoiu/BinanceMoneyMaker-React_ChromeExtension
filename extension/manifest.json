@@ -8,13 +8,13 @@
   },
   "content_scripts": [
     {
-      "matches": ["http://*/*", "https://*/*"],
-      "js": ["./contentScript.js"],
+      "matches": ["https://www.binance.com/*"],
+      "js": ["dist/contentScript.js"],
       "run_at": "document_end"
     }
   ],
   "background": {
-    "scripts": ["./background.js"],
+    "scripts": ["dist/background.js"],
     "persistent": false
   }
 }

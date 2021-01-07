@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-class App extends React.Component {
-  render() {
-    return <div>REALLY NOW?</div>;
-  }
-}
+const App = () => {
+  //On Load
+  useEffect(() => {
+    console.log("HiyAAAAAAA");
+  }, []);
+
+  return <div>REALLY NOW?</div>;
+};
 
 export default App;

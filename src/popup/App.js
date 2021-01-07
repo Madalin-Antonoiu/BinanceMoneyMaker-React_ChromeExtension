@@ -2,7 +2,7 @@ import React from "react";
 
 class App extends React.Component {
   render() {
-    return <div className="ui container">Great?</div>;
+    return <div className="ui container">Great? YES!</div>;
   }
 }
 

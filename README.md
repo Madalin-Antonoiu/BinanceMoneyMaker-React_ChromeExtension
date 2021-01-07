@@ -25,6 +25,8 @@ and probably others too...
 `✅ Template - Chrome Extension with React - V1 - (popup window not external) ✅`
 This commit can be forked for any other fresh Chrome- React- Extension goodstuff!
 
+# More help:
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
