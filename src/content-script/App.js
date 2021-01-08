@@ -1,32 +1,74 @@
 import React from "react";
+import HistoricFluctuation from "../components/HistoricFluctuation";
+import PriceNow from "../components/PriceNow";
+import CalculateFluctuationVsTime from "../components/CalculateFluctuationVsTime";
 
 class App extends React.Component {
-  state = { priceNow: "" };
+  state = {
+    priceNow: null,
+    time: null,
+    percentageDiffSinceLast: null,
+    previousPrice: null,
+    previousState: null,
+    arrayX: [],
+  };
+  getDataConstantly = () => {
+    console.log("DOM Loaded.");
 
-  componentDidMount() {
     this.interval = setInterval(() => {
       const price = document.querySelector(".contractPrice").textContent;
-      // only pass it to setState if it changed
-      if (price === this.state.priceNow) return;
+      if (price === this.state.priceNow) return; //return early if no changes in price
 
-      this.setState({
-        priceNow: price,
+      this.setState((prevState) => {
+        return {
+          ...prevState,
+          priceNow: price, // dual check, to make sure
+          arrayX: [
+            ...prevState.arrayX,
+            { time: new Date().toLocaleTimeString(), price: price },
+          ],
+          previousState: prevState,
+          previousPrice: prevState.priceNow,
+          percentageDiffSinceLast: prevState.priceNow
+            ? (price - prevState.priceNow).toFixed(5)
+            : null,
+          time: new Date().toLocaleTimeString(),
+        };
       }),
         400;
     });
+  };
+  componentDidMount() {
+    window.addEventListener("load", () => this.getDataConstantly());
+    // after DOM loaded
   }
   componentWillUnmount() {
+    window.removeEventListener("load", this.handleLoad);
     clearInterval(this.interval);
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    console.log("Price now is", this.state.priceNow);
+  componentDidUpdate() {
+    console.log(this.state);
   }
 
   render() {
     return (
-      <div id="39jdjsdssd">
-        {this.state.price} {this.state.priceNow}
+      <div className="ui grid">
+        <div className="left floated right aligned six wide column">
+          <div className="ui segment">
+            <PriceNow priceNow={this.state.priceNow} />
+          </div>
+        </div>
+        <div className="right floated left aligned six wide column">
+          <div className="ui segment">
+            <HistoricFluctuation
+              time={this.state.time}
+              diff={this.state.percentageDiffSinceLast}
+            />
+
+            <CalculateFluctuationVsTime data={this.state.arrayX} />
+          </div>
+        </div>
       </div>
     );
   }
@@ -56,3 +98,25 @@ export default App;
 //     ))}
 //   </div>
 // );
+
+// <div
+//   id="39jdjsdssd"
+//   className="ui grid"
+//   style={{
+//     position: "fixed",
+//     bottom: "0px",
+//     left: "0px",
+//     background: "black",
+//     color: "white",
+//     height: "200px",
+//     width: "600px",
+//     opacity: "0.8",
+//   }}
+// >
+//   <div className="ui left floated five wide column">
+//     {this.state.priceNow}
+//   </div>
+//   <div className="ui right floated five wide column">
+//     {this.state.time}, {this.state.percentageDiffSinceLast}
+//   </div>
+// </div>
