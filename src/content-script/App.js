@@ -9,7 +9,6 @@ class App extends React.Component {
     time: null,
     percentageDiffSinceLast: null,
     previousPrice: null,
-    previousState: null,
     arrayX: [],
   };
   getDataConstantly = () => {
@@ -20,19 +19,17 @@ class App extends React.Component {
       if (price === this.state.priceNow) return; //return early if no changes in price
 
       this.setState((prevState) => {
+        const timeNow = new Date();
+
         return {
           ...prevState,
           priceNow: price, // dual check, to make sure
-          arrayX: [
-            ...prevState.arrayX,
-            { time: new Date().toLocaleTimeString(), price: price },
-          ],
-          previousState: prevState,
+          arrayX: [...prevState.arrayX, { time: timeNow, price: price }],
           previousPrice: prevState.priceNow,
           percentageDiffSinceLast: prevState.priceNow
             ? (price - prevState.priceNow).toFixed(5)
             : null,
-          time: new Date().toLocaleTimeString(),
+          time: timeNow.toLocaleTimeString(),
         };
       }),
         400;
