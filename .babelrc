@@ -1,4 +1,8 @@
 {
   "presets": ["@babel/preset-env"],
-  "plugins": ["@babel/transform-runtime", "@babel/plugin-transform-react-jsx"]
+  "plugins": [
+    "@babel/transform-runtime",
+    "@babel/plugin-transform-react-jsx",
+    "@babel/plugin-proposal-class-properties"
+  ]
 }
