@@ -8,7 +8,7 @@ import React, { useState, useEffect } from "react";
 export default (data) => {
   useEffect(() => {
     // console.log("Componend Rendered");
-    console.log("From compon:", data);
+    //console.log("From compon:", data);
   }, [data]);
 
   return <div>PLACEHOLDER</div>;

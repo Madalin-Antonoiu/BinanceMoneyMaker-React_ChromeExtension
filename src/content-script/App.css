@@ -1,0 +1,7 @@
+.my-grid {
+  position: absolute !important;
+  bottom: 0px;
+  left: 0px;
+  height: 100px;
+  width: 50%;
+}

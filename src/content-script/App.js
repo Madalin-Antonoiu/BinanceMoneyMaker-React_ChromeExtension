@@ -2,6 +2,7 @@ import React from "react";
 import HistoricFluctuation from "../components/HistoricFluctuation";
 import PriceNow from "../components/PriceNow";
 import CalculateFluctuationVsTime from "../components/CalculateFluctuationVsTime";
+import "./App.css";
 
 class App extends React.Component {
   state = {
@@ -36,7 +37,7 @@ class App extends React.Component {
     });
   };
   componentDidMount() {
-    window.addEventListener("load", () => this.getDataConstantly());
+    window.addEventListener("load", () => console.log("Loaded")); //
     // after DOM loaded
   }
   componentWillUnmount() {
@@ -50,7 +51,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="ui grid">
+      <div className="ui grid sticky my-grid">
         <div className="left floated right aligned six wide column">
           <div className="ui segment">
             <PriceNow priceNow={this.state.priceNow} />
