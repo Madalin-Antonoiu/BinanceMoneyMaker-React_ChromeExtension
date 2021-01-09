@@ -17,7 +17,7 @@ var isRunning,
   textAreaContent = null;
 var savedSwitchToTrendTab;
 
-createPopup(); // add true for Minimized :)
+createPopup(true); // add true for Minimized :)
 // createSpider();
 
 chrome.browserAction.onClicked.addListener((tab) =>

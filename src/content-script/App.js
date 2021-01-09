@@ -37,7 +37,7 @@ class App extends React.Component {
     });
   };
   componentDidMount() {
-    window.addEventListener("load", () => console.log("Loaded")); //
+    window.addEventListener("load", () => getDataConstantly()); //
     // after DOM loaded
   }
   componentWillUnmount() {
@@ -52,13 +52,12 @@ class App extends React.Component {
   render() {
     return (
       <div className="ui grid sticky my-grid">
-        <div className="left floated right aligned six wide column">
-          <div className="ui segment">
+        <div className="ui grid">
+          <div className="four wide column">
             <PriceNow priceNow={this.state.priceNow} />
           </div>
-        </div>
-        <div className="right floated left aligned six wide column">
-          <div className="ui segment">
+
+          <div className="four wide column">
             <HistoricFluctuation
               time={this.state.time}
               diff={this.state.percentageDiffSinceLast}
